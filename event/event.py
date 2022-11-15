@@ -2,7 +2,8 @@ from datetime import datetime, timedelta
 
 
 class Event:
-    def __init__(self, start_date, duration, title, description, owner):
+    def __init__(self, idx, start_date, duration, title, description, owner):
+        self.idx = idx
         self.owner = owner
         self.description = description
         self.title = title
@@ -25,7 +26,7 @@ class Event:
 
     @property
     def start_date(self):
-        return f'{self._start_date:%A %b %y, %H:%M}'
+        return self._start_date
 
     @start_date.setter
     def start_date(self, new_start_date):
