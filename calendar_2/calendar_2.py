@@ -98,6 +98,17 @@ class Calendar:
 
         return events
 
+    @staticmethod
+    def sort_by_date(fn):
+
+        def inner(*args, **kwargs):
+            event = fn(*args, **kwargs)
+
+            return sorted(event, key=lambda x: x.start_date)
+
+        return inner
+
+    @sort_by_date
     def filter(self, filter_name, **kwargs):
         options = {
             'duration': self._filter_by_duration,
@@ -110,6 +121,16 @@ class Calendar:
 
         return options.get(filter_name)(**kwargs)  # zadanie dla nas co tu ma byc (po ',')
 
+    def remove(self, idx):
+        events = list(filter(lambda x: x.idx == idx, self._events))
+
+        if not events:
+            raise ValueError(f'Can not delete element, because it does not exist')
+
+        for event in events:
+            self._events.remove(event)
+
+
     def __len__(self):
         return len(self._events)
 
@@ -118,8 +139,10 @@ data = generate_objects()
 
 calendar = Calendar(data)
 
-c = calendar.filter('participants', search_text='Wojtek')
-pprint(c)
+print(len(calendar))
+c = calendar.remove(1)
+print(len(calendar))
+
 
 # f = calendar.filter_by_date()
 
