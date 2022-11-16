@@ -1,7 +1,7 @@
-from event import Event
+from event import Event # z modułu(package) importujemy Klase Event
 
 
-class Reminder(Event):
-    def __init__(self, start_date, duration, title, description, owner, remind):
+class Reminder(Event): # klasa Reminder, która dziedziczy z klasy Event
+    def __init__(self, start_date, duration, title, description, owner, remind):  # init przyjmuje podane parametry
         super().__init__(start_date, duration, title, description, owner)
         self.remind = remind

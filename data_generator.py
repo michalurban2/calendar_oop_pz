@@ -1,6 +1,7 @@
 import datetime
 import random
 import json
+# paczki ze standard library, które są już wbudowane w python'a
 
 
 class DataGenerator:
@@ -12,6 +13,7 @@ class DataGenerator:
         self.users = users
         self.reminder = reminder
         self.workshop = workshop
+        # tworzymy pola obiektu i przypisujemy zmienne
 
     def generate_data(self, amount):
         events = []
@@ -20,13 +22,13 @@ class DataGenerator:
             event = {
                 'idx': idx,
                 'start_date': f'{self.beginning_date + datetime.timedelta(hours=random.randint(1, 5000)):%Y/%m/%d, %H:%M}',
-                'duration': random.randint(*self.durations),
+                'duration': random.randint(*self.durations),  # gwiazdka *, przekazujemy rozpakowaną tuple
                 'title': random.choice(self.titles),
                 'description': random.choice(self.descriptions),
                 'owner': random.choice(self.users)
             }
 
-            if self.reminder:
+            if self.reminder:  # jeżeli jest Trefy lub Falsy
                 event['remind'] = random.choice([True, False])
 
             if self.workshop:
@@ -41,10 +43,10 @@ class DataGenerator:
         with open(path, 'w') as file:
             json.dump(data, file)
 
-    @staticmethod
+    @staticmethod  # dodanie dekoratora staticmethod
     def load_data(path):  # wczytywanie pliku
-        with open(path) as file:
-            return json.load(file)
+        with open(path) as file:  # with jako kontekst
+            return json.load(file)  # zwracamy metodo load w kontekście obiektu json
 
 
 d = DataGenerator.load_data('event_data.json')
