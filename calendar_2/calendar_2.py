@@ -60,6 +60,7 @@ c = calendar.filter_by_duration(duration_min=15, duration_max=20, duration=15)
 
 # f = calendar.filter_by_date()
 
+
 # pprint(f)
 # pprint(len(calendar))
 # pprint(calendar.events)
