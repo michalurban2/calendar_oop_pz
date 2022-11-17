@@ -42,6 +42,10 @@ class DataGenerator:
             json.dump(data, file)
 
     @staticmethod
+    def load_data(path):
+        with open(path) as file:
+            return json.load(file)
+
     def load_data(path):  # wczytywanie pliku
         with open(path) as file:
             return json.load(file)
