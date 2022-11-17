@@ -1,7 +1,10 @@
 import datetime
 import random
 import json
+<<<<<<< HEAD
 # paczki ze standard library, które są już wbudowane w python'a
+=======
+>>>>>>> CO-003_calendar
 
 
 class DataGenerator:
@@ -13,7 +16,10 @@ class DataGenerator:
         self.users = users
         self.reminder = reminder
         self.workshop = workshop
+<<<<<<< HEAD
         # tworzymy pola obiektu i przypisujemy zmienne
+=======
+>>>>>>> CO-003_calendar
 
     def generate_data(self, amount):
         events = []
@@ -22,13 +28,21 @@ class DataGenerator:
             event = {
                 'idx': idx,
                 'start_date': f'{self.beginning_date + datetime.timedelta(hours=random.randint(1, 5000)):%Y/%m/%d, %H:%M}',
+<<<<<<< HEAD
                 'duration': random.randint(*self.durations),  # gwiazdka *, przekazujemy rozpakowaną tuple
+=======
+                'duration': random.randint(*self.durations),
+>>>>>>> CO-003_calendar
                 'title': random.choice(self.titles),
                 'description': random.choice(self.descriptions),
                 'owner': random.choice(self.users)
             }
 
+<<<<<<< HEAD
             if self.reminder:  # jeżeli jest Trefy lub Falsy
+=======
+            if self.reminder:
+>>>>>>> CO-003_calendar
                 event['remind'] = random.choice([True, False])
 
             if self.workshop:
@@ -39,6 +53,7 @@ class DataGenerator:
         return events
 
     @staticmethod
+<<<<<<< HEAD
     def save_data(data, path):  # zapisywanie pliku
         with open(path, 'w') as file:
             json.dump(data, file)
@@ -51,3 +66,13 @@ class DataGenerator:
 
 d = DataGenerator.load_data('event_data.json')
 print(d)
+=======
+    def save_data(data, path):
+        with open(path, 'w') as file:
+            json.dump(data, file)
+
+    @staticmethod
+    def load_data(path):
+        with open(path) as file:
+            return json.load(file)
+>>>>>>> CO-003_calendar

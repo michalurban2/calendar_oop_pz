@@ -13,7 +13,11 @@ event_data = DataGenerator(
 )
 
 events = event_data.generate_data(150)
+<<<<<<< HEAD
 event_data.save_data(events, 'events_data.json')
+=======
+event_data.save_data(events, 'event_data.json')
+>>>>>>> CO-003_calendar
 
 reminder_data = DataGenerator(
     datetime.date.today() + datetime.timedelta(days=12),
