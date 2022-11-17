@@ -37,7 +37,7 @@ class DataGenerator:
         return events
 
     @staticmethod
-    def save_data(data, path):
+    def save_data(data, path):  # zapisywanie pliku
         with open(path, 'w') as file:
             json.dump(data, file)
 
@@ -45,3 +45,11 @@ class DataGenerator:
     def load_data(path):
         with open(path) as file:
             return json.load(file)
+
+    def load_data(path):  # wczytywanie pliku
+        with open(path) as file:
+            return json.load(file)
+
+
+d = DataGenerator.load_data('event_data.json')
+print(d)
