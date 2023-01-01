@@ -2,11 +2,7 @@ from datetime import datetime, timedelta
 
 
 class Event:
-<<<<<<< HEAD
     def __init__(self, idx, start_date, duration, title, description, owner):  # deklarujemy methode init
-=======
-    def __init__(self, idx, start_date, duration, title, description, owner):
->>>>>>> CO-003_calendar
         self.idx = idx
         self.owner = owner
         self.description = description
@@ -24,13 +20,9 @@ class Event:
             raise TypeError(f'Duration should be a positive digit. This is: {type(new_duration)}.')
 
         if new_duration < 10:
-<<<<<<< HEAD
             raise ValueError(f'too short event: {type(self).__name__} can not be shorter than 10 minutes.')
             # type(self).__name__ - wyciągamy pole, w której trzyma nazwę
         self._duration = new_duration  # przypisujemy do pola protected _duration
-=======
-            raise ValueError(f'{type(self).__name__} can not be shorter than 10 minutes.')
->>>>>>> CO-003_calendar
 
     @property  # definiowane gettera
     def start_date(self):
@@ -47,20 +39,14 @@ class Event:
         self._start_date = new_start_date
 
     def __str__(self):
-<<<<<<< HEAD
         return f'{self.title}, {self.start_date}, ' \
                f'{(self._start_date + timedelta(minutes=self.duration)):%A %b %y, %H:%M}'  # interpolacja textu
-=======
         return f'{self.title}, {self.start_date},' \
                f' {(self._start_date + timedelta(minutes=self.duration)):%A %b %y, %H:%M}'
->>>>>>> CO-003_calendar
 
     def __repr__(self):  # deklarujemy __repr__
         attrs = ', '.join(
             f'{key[1:] if key.startswith("_") else key}={repr(value)}' for key, value in vars(self).items())
-<<<<<<< HEAD
         # ^ generator expression, który iteruje po ...?
         return f'{type(self).__name__}({attrs})'
-=======
         return f'{type(self).__name__}("{attrs})'
->>>>>>> CO-003_calendar
