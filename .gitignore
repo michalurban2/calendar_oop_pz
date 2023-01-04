@@ -5,3 +5,11 @@
 venv
 
 *_data.json
+
+#venv
+#cov_html*
+#*.json
+#__pycache__/
+#.idea/
+#.DS_Store
+#.coverage
